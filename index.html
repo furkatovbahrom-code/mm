@@ -160,10 +160,30 @@
     visibility: hidden;
   }
 } 
-    
+
+    #audioOverlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+  font-size: 20px;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
+
+  <div id="audioOverlay">
+  <p>Сайтты бастау үшін экранды бір рет басыңыз</p>
+</div>
+
+<audio id="introAudio" src="intro.m4a"></audio>
 
 <div id="loader">
   <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
@@ -314,7 +334,18 @@ document.querySelectorAll(".product").forEach(product => {
 if (navigator.userAgent.includes("TikTok")) {
   alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
 }
-  
+
+  const overlay = document.getElementById("audioOverlay");
+const audio = document.getElementById("introAudio");
+
+overlay.addEventListener("click", () => {
+
+  audio.play();
+
+  overlay.style.display = "none";
+
+});
+
 });
 </script>
 
