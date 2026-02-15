@@ -333,17 +333,6 @@ if (navigator.userAgent.includes("TikTok")) {
   alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
 }
 
-  const overlay = document.getElementById("audioOverlay");
-const audio = document.getElementById("introAudio");
-
-overlay.addEventListener("click", () => {
-
-  audio.play();
-
-  overlay.style.display = "none";
-
-});
-
   const audio = document.getElementById("introAudio");
 
 audio.volume = 0;
