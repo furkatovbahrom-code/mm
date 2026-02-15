@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-EPIC Shop</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: white;
+    }
+
+    .top-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .products {
+      padding: 15px;
+    }
+
+  .product {
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  color: white;
+}
+
+.product::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.product * {
+  position: relative;
+  z-index: 2;
+}
+
+.fuel {
+  background: url("photo_2026-02-06_19-38-53.jpg") center/cover no-repeat;
+}
+
+.elev8 {
+  background: url("photo_2026-02-13_15-59-42.jpg") center/cover no-repeat;
+}
+
+.bcardio {
+  background: url("photo_2026-02-13_15-59-34.jpg") center/cover no-repeat;
+}
+
+.sleep {
+  background: url("photo_2026-02-13_15-59-47.jpg") center/cover no-repeat;
+}
+
+.restore {
+  background: url("photo_2026-02-13_15-59-47.jpg") center/cover no-repeat;
+}
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 10px 0;
+    }
+
+    .quantity button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      font-size: 20px;
+      background: #ddd;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .top-buttons a,
+.buy {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(145deg, #22c55e, #15803d);
+  color: white;
+  padding: 12px;
+  border-radius: 14px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 
+    0 6px 0 #166534,
+    0 8px 15px rgba(0,0,0,0.2);
+  transition: all 0.15s ease-in-out;
+}
+
+.top-buttons a:active,
+.buy:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 2px 0 #166534,
+    0 4px 8px rgba(0,0,0,0.2);
+}
+    
+    .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+    }
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 1.3s ease forwards;
+  animation-delay: 3s;
+}
+
+#loader img {
+  width: 200px;
+  animation: zoomIn 1.5s ease;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+} 
+    
+  </style>
+</head>
+<body>
+
+<div id="loader">
+  <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
+</div>
+
+<header class="header">
+  <h1>B-EPIC Shop</h1>
+  <p>Қазақстан бойынша сапалы өнімдер</p>
+
+<div id="openBrowser" style="background:#b0b3af;8padding:12px;border-radius:10px;margin-top:10px;font-size:14px;">
+Егер WhatsApp ашылмаса, оң жақ жоғарыдағы үш нүктені ... басып, 
+<strong>"Браузерде ашу"</strong> таңдаңыз.
+</div>
+  
+  <div class="top-buttons">
+    <a href="https://www.tiktok.com/@bepic_team_" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" 
+     style="width:26px; vertical-align:middle; margin-right:8px;">
+TikTok B-EPIC
+    </a>
+    <a href="https://www.tiktok.com/@beco_team_" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" 
+     style="width:26px; vertical-align:middle; margin-right:8px;">
+TikTok B-EPIC
+    </a>
+    <a href="tel:+77752709238">📞 Қоңырау шалу</a>
+  </div>
+</header>
+
+<section class="products">
+
+  <div class="product fuel" data-name="Fuel Tabs" data-price="11000">
+    <h2>Fuel Tabs</h2>
+    <p>Жанармай тиімділігін арттырады</p>
+    <div>1 дана: 11000 ₸</div>
+    <div class="quantity">
+      <button class="minus">−</button>
+      <span class="count">1</span>
+      <button class="plus">+</button>
+    </div>
+    <div class="total">Жалпы: <span class="total-price">11000</span> ₸</div>
+    <button class="buy">Сатып алу 🛒</button>
+  </div>
+
+  <div class="product elev8" data-name="Elev8" data-price="30000">
+    <h2>Elev8</h2>
+    <p>Энергия мен сергектік береді</p>
+    <div>1 дана: 30000 ₸</div>
+    <div class="quantity">
+      <button class="minus">−</button>
+      <span class="count">1</span>
+      <button class="plus">+</button>
+    </div>
+    <div class="total">Жалпы: <span class="total-price">30000</span> ₸</div>
+    <button class="buy">Сатып алу 🛒</button>
+  </div>
+
+  <div class="product bcardio" data-name="BCARDIO" data-price="38000">
+    <h2>BCARDIO</h2>
+    <p>Жүрек-қан тамырларын қолдайды</p>
+    <div>1 дана: 38000 ₸</div>
+    <div class="quantity">
+      <button class="minus">−</button>
+      <span class="count">1</span>
+      <button class="plus">+</button>
+    </div>
+    <div class="total">Жалпы: <span class="total-price">38000</span> ₸</div>
+    <button class="buy">Сатып алу 🛒</button>
+  </div>
+
+  <div class="product sleep" data-name="Acceler8 Sleep" data-price="22500">
+    <h2>Acceler8 Sleep</h2>
+    <p>Ұйқы сапасын жақсартады</p>
+    <div>1 дана: 22500 ₸</div>
+    <div class="quantity">
+      <button class="minus">−</button>
+      <span class="count">1</span>
+      <button class="plus">+</button>
+    </div>
+    <div class="total">Жалпы: <span class="total-price">22500</span> ₸</div>
+    <button class="buy">Сатып алу 🛒</button>
+  </div>
+
+  <div class="product restore" data-name="Acceler8 Restore" data-price="22500">
+    <h2>Acceler8 Restore</h2>
+    <p>Қалпына келуді тездетеді</p>
+    <div>1 дана: 22500 ₸</div>
+    <div class="quantity">
+      <button class="minus">−</button>
+      <span class="count">1</span>
+      <button class="plus">+</button>
+    </div>
+    <div class="total">Жалпы: <span class="total-price">22500</span> ₸</div>
+    <button class="buy">Сатып алу 🛒</button>
+  </div>
+
+</section>
+
+<a href="https://wa.me/77752709238" class="whatsapp-float">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+       style="width:45px;">
+</a>
+
+  © 2026 — <b>Bahrom Furkatov</b>, 
+         Негізін қалаушы
+</footer>
+  
+<script>
+document.querySelectorAll(".product").forEach(product => {
+
+  const price = parseInt(product.dataset.price);
+  const name = product.dataset.name;
+
+  const minus = product.querySelector(".minus");
+  const plus = product.querySelector(".plus");
+  const countEl = product.querySelector(".count");
+  const totalEl = product.querySelector(".total-price");
+  const buyBtn = product.querySelector(".buy");
+
+  let count = 1;
+
+  plus.onclick = () => {
+    count++;
+    countEl.textContent = count;
+    totalEl.textContent = count * price;
+  };
+
+  minus.onclick = () => {
+    if (count > 1) {
+      count--;
+      countEl.textContent = count;
+      totalEl.textContent = count * price;
+    }
+  };
+
+  buyBtn.onclick = () => {
+    const total = count * price;
+
+    const message = `Сәлеметсіз бе! Мен ${name} өнімінен ${count} дана алғым келеді. Жалпы баға: ${total} ₸`;
+
+    const phoneNumber = "77752709238"; // ОСЫ ЖЕРГЕ ӨЗ НӨМІРІҢДІ ЖАЗ
+
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  };
+
+if (navigator.userAgent.includes("TikTok")) {
+  alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
+}
+  
+});
+</script>
+
+</body>
+</html>
