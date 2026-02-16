@@ -161,28 +161,52 @@
   }
 } 
 
-    #audioOverlay {
+  #intro {
   position: fixed;
   inset: 0;
-  background: url("image_1770828767780.png") center/cover no-repeat;
+  background: url("intro-bg.jpg") center/cover no-repeat; /* xohlasang oddiy rang ham bo‘ladi */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 9999;
+  z-index: 99999;
+  color: white;
   cursor: pointer;
-    }
+}
+
+.intro-content img {
+  width: 180px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+#intro.hide {
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 
   </style>
 </head>
 <body>
 
-  <div id="audioOverlay">
-  <p>Сайтты бастау үшін экранды бір рет басыңыз</p>
+  <!-- INTRO SCREEN -->
+<div id="intro">
+  <div class="intro-content">
+    <img src="image_1770828767780.png" alt="Intro Image">
+    <h1>Қош келдіңіз!</h1>
+    <p>Сайтпен танысу үшін экранды басыңыз</p>
+  </div>
 </div>
 
+<!-- AUDIO -->
 <audio id="introAudio" src="Импортировано.m4a"></audio>
-
+  
 <div id="loader">
   <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
 </div>
@@ -333,20 +357,36 @@ if (navigator.userAgent.includes("TikTok")) {
   alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
 }
 
-  const audio = document.getElementById("introAudio");
+  const intro = document.getElementById("intro");
+const audio = document.getElementById("introAudio");
 
-audio.volume = 0;
-audio.play();
+let played = false;
 
-let vol = 0;
-let fade = setInterval(() => {
-  if (vol < 0.4) {
-    vol += 0.05;
-    audio.volume = vol;
-  } else {
-    clearInterval(fade);
-  }
-}, 200);
+intro.addEventListener("click", () => {
+
+  if (played) return;
+  played = true;
+
+  // Ovoz 0 dan boshlaydi
+  audio.volume = 0;
+  audio.play();
+
+  // Sekin ko‘tariladi
+  let vol = 0;
+  const fadeIn = setInterval(() => {
+    if (vol < 0.5) {
+      vol += 0.05;
+      audio.volume = vol;
+    } else {
+      clearInterval(fadeIn);
+    }
+  }, 200);
+
+  // Intro yopiladi
+  intro.classList.add("hide");
+
+});
+
 });
 </script>
 
