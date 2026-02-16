@@ -161,26 +161,27 @@
   }
 } 
 
-  #intro {
+    #introScreen {
   position: fixed;
   inset: 0;
-  background: url("intro-bg.jpg") center/cover no-repeat; /* xohlasang oddiy rang ham bo‘ladi */
-  display: flex;
+  background: url("image_1770828767780.png") center/cover no-repeat;
+  display: none; /* boshida ko‘rinmaydi */
   justify-content: center;
   align-items: center;
-  text-align: center;
-  z-index: 99999;
+  z-index: 9998;
+}
+
+#introScreen h1 {
   color: white;
-  cursor: pointer;
+  font-size: 32px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
 
-.intro-content img {
-  width: 180px;
-  margin-bottom: 20px;
-  border-radius: 20px;
+#introScreen.show {
+  display: flex;
 }
 
-#intro.hide {
+#introScreen.hide {
   animation: fadeOut 1s ease forwards;
 }
 
@@ -194,22 +195,17 @@
   </style>
 </head>
 <body>
-
-  <!-- INTRO SCREEN -->
-<div id="intro">
-  <div class="intro-content">
-    <img src="image_1770828767780.png" alt="Intro Image">
-    <h1>Қош келдіңіз!</h1>
-    <p>Сайтпен танысу үшін экранды басыңыз</p>
-  </div>
-</div>
-
-<!-- AUDIO -->
-<audio id="introAudio" src="Импортировано.m4a"></audio>
   
 <div id="loader">
   <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
 </div>
+
+  <!-- INTRO IMAGE SCREEN -->
+<div id="introScreen">
+  <h1>Қош келдіңіз</h1>
+</div>
+
+<audio id="introAudio" src="Импортировано.m4a"></audio>
 
 <header class="header">
   <h1>B-EPIC Shop</h1>
@@ -357,33 +353,37 @@ if (navigator.userAgent.includes("TikTok")) {
   alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
 }
 
-  const intro = document.getElementById("intro");
+ const loader = document.getElementById("loader");
+const introScreen = document.getElementById("introScreen");
 const audio = document.getElementById("introAudio");
 
 let played = false;
 
-intro.addEventListener("click", () => {
+// Loader tugagandan keyin intro chiqadi
+setTimeout(() => {
+  introScreen.classList.add("show");
+}, 3000); // loader necha sekund bo‘lsa shunga teng
+
+introScreen.addEventListener("click", () => {
 
   if (played) return;
   played = true;
 
-  // Ovoz 0 dan boshlaydi
   audio.volume = 0;
   audio.play();
 
-  // Sekin ko‘tariladi
+  // sekin ko‘tariladi
   let vol = 0;
-  const fadeIn = setInterval(() => {
+  const fade = setInterval(() => {
     if (vol < 0.5) {
       vol += 0.05;
       audio.volume = vol;
     } else {
-      clearInterval(fadeIn);
+      clearInterval(fade);
     }
   }, 200);
 
-  // Intro yopiladi
-  intro.classList.add("hide");
+  introScreen.classList.add("hide");
 
 });
 
