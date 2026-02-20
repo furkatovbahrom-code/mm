@@ -303,6 +303,8 @@ TikTok B-EPIC
 </footer>
   
 <script>
+
+// ================= PRODUCT CODE =================
 document.querySelectorAll(".product").forEach(product => {
 
   const price = parseInt(product.dataset.price);
@@ -335,27 +337,31 @@ document.querySelectorAll(".product").forEach(product => {
 
     const message = `Сәлеметсіз бе! Мен ${name} өнімінен ${count} дана алғым келеді. Жалпы баға: ${total} ₸`;
 
-    const phoneNumber = "77752709238"; // ОСЫ ЖЕРГЕ ӨЗ НӨМІРІҢДІ ЖАЗ
-
+    const phoneNumber = "77752709238";
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
     window.open(url, "_blank");
   };
 
+}); // ❗ PRODUCT FOR EACH SHU YERDA YOPILDI
+
+
+// ================= TIKTOK CHECK =================
 if (navigator.userAgent.includes("TikTok")) {
   alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
 }
 
- const loader = document.getElementById("loader");
+
+// ================= INTRO CODE =================
+const loader = document.getElementById("loader");
 const introScreen = document.getElementById("introScreen");
 const audio = document.getElementById("introAudio");
 
 let played = false;
 
-// Loader tugagandan keyin intro chiqadi
 setTimeout(() => {
   introScreen.classList.add("show");
-}, 3000); // loader necha sekund bo‘lsa shunga teng
+}, 3000);
 
 introScreen.addEventListener("click", () => {
 
@@ -365,7 +371,6 @@ introScreen.addEventListener("click", () => {
   audio.volume = 0;
   audio.play();
 
-  // sekin ko‘tariladi
   let vol = 0;
   const fade = setInterval(() => {
     if (vol < 0.5) {
@@ -380,7 +385,50 @@ introScreen.addEventListener("click", () => {
 
 });
 
-});
+
+// ================= BONUS CODE =================
+const bonusBtn = document.getElementById("bonusBtn");
+const bonusModal = document.getElementById("bonusModal");
+const closeBonus = document.querySelector(".closeBonus");
+const bonusTable = document.getElementById("bonusTable");
+
+let customers = [
+  { name: "Ali", orders: 2 },
+  { name: "Madina", orders: 1 },
+  { name: "Ruslan", orders: 3 }
+];
+
+function renderTable() {
+  bonusTable.innerHTML = "";
+
+  customers.forEach(customer => {
+    let points = customer.orders * 25;
+
+    bonusTable.innerHTML += `
+      <tr>
+        <td>${customer.name}</td>
+        <td>${customer.orders}</td>
+        <td>${points}</td>
+      </tr>
+    `;
+  });
+}
+
+bonusBtn.onclick = () => {
+  bonusModal.style.display = "flex";
+  renderTable();
+};
+
+closeBonus.onclick = () => {
+  bonusModal.style.display = "none";
+};
+
+window.onclick = (e) => {
+  if (e.target === bonusModal) {
+    bonusModal.style.display = "none";
+  }
+};
+
 </script>
 
 </body>
