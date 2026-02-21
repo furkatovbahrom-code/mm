@@ -182,19 +182,26 @@
     visibility: hidden;
   }
 }
-    #bonusBtn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: #16a34a;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  z-index: 9999;
-  font-weight: bold;
+    /* HEADER ichida turishi uchun */
+.header {
+  position: relative;
 }
 
+/* KNOPKA qimirlamaydi */
+#bonusBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #16a34a;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 5;
+}
+
+/* MODAL */
 #bonusModal {
   position: fixed;
   inset: 0;
@@ -209,36 +216,42 @@
   background: white;
   padding: 20px;
   border-radius: 15px;
-  width: 90%;
-  max-width: 400px;
-}
-
-.bonus-content h2 {
-  text-align: center;
+  width: 95%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .closeBonus {
-  float: right;
+  align-self: flex-end;
   cursor: pointer;
   font-size: 18px;
+}
+
+/* Scroll pastga tushishi uchun */
+.table-wrapper {
+  overflow-y: auto;
+  margin-top: 10px;
+  flex: 1;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
 }
 
 th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 6px;
   text-align: center;
+  font-size: 13px;
 }
 
 th {
   background: #16a34a;
   color: white;
-}
+    }
   </style>
 </head>
 <body>
@@ -254,6 +267,30 @@ th {
 <audio id="introAudio" src="Импортировано.m4a"></audio>
 
 <header class="header">
+
+  <!-- BONUS BUTTON -->
+<div id="bonusBtn">⭐ Бонус</div>
+
+  <!-- BONUS MODAL -->
+<div id="bonusModal">
+  <div class="bonus-content">
+    <span class="closeBonus">✖</span>
+    <h2>Бонус тізімі</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Аты</th>
+            <th>Сатылым</th>
+            <th>Балл</th>
+          </tr>
+        </thead>
+        <tbody id="bonusTable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
   <h1>B-EPIC Shop</h1>
   <p>Қазақстан бойынша сапалы өнімдер</p>
 
@@ -352,27 +389,6 @@ TikTok B-EPIC
   </div>
   
 </section>
-
-  <!-- BONUS BUTTON -->
-<div id="bonusBtn">⭐ Бонус</div>
-
-<!-- BONUS MODAL -->
-<div id="bonusModal">
-  <div class="bonus-content">
-    <span class="closeBonus">✖</span>
-    <h2>Бонус кестесі</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Аты</th>
-          <th>Тапсырыс саны</th>
-          <th>Балл</th>
-        </tr>
-      </thead>
-      <tbody id="bonusTable"></tbody>
-    </table>
-  </div>
-</div>
   
   © 2026 — <b>Bahrom Furkatov</b>, 
          Негізін қалаушы
@@ -455,50 +471,64 @@ introScreen.addEventListener("click", () => {
     }
   }, 200);
 
-  introScreen.classList.add("hide");
-
-});
-
-// ================= BONUS CODE =================
+  // BONUS ELEMENTS
 const bonusBtn = document.getElementById("bonusBtn");
 const bonusModal = document.getElementById("bonusModal");
 const closeBonus = document.querySelector(".closeBonus");
 const bonusTable = document.getElementById("bonusTable");
 
+// 30 TA Odam tayyor
 let customers = [
   { name: "Ali", orders: 2 },
   { name: "Madina", orders: 1 },
   { name: "Ruslan", orders: 3 },
-  { name: "Bahrom", orders:5 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 },
-  { name: "Bahrom", orders:4 }
+  { name: "Aziza", orders: 4 },
+  { name: "Bekzat", orders: 2 },
+  { name: "Nurlan", orders: 5 },
+  { name: "Dias", orders: 1 },
+  { name: "Aruzhan", orders: 2 },
+  { name: "Samat", orders: 3 },
+  { name: "Aigerim", orders: 4 },
+  { name: "Ernar", orders: 2 },
+  { name: "Dana", orders: 1 },
+  { name: "Marat", orders: 6 },
+  { name: "Zarina", orders: 2 },
+  { name: "Timur", orders: 3 },
+  { name: "Ayan", orders: 1 },
+  { name: "Altynay", orders: 2 },
+  { name: "Arman", orders: 4 },
+  { name: "Kamila", orders: 3 },
+  { name: "Askar", orders: 2 },
+  { name: "Sanzhar", orders: 1 },
+  { name: "Madi", orders: 5 },
+  { name: "Aruz", orders: 2 },
+  { name: "Elmira", orders: 3 },
+  { name: "Rinat", orders: 4 },
+  { name: "Gulnaz", orders: 1 },
+  { name: "Adil", orders: 2 },
+  { name: "Zhanna", orders: 3 },
+  { name: "Kairat", orders: 2 },
+  { name: "Saltanat", orders: 4 }
 ];
 
 function renderTable() {
   bonusTable.innerHTML = "";
 
-  customers.forEach(customer => {
+  customers.forEach((customer, index) => {
     let points = customer.orders * 25;
 
     bonusTable.innerHTML += `
       <tr>
+        <td>${index + 1}</td>
         <td>${customer.name}</td>
         <td>${customer.orders}</td>
         <td>${points}</td>
       </tr>
     `;
   });
+
+  // pastga tushishi uchun
+  bonusTable.parentElement.scrollTop = bonusTable.parentElement.scrollHeight;
 }
 
 bonusBtn.onclick = () => {
