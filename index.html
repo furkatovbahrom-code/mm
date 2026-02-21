@@ -9,27 +9,26 @@
   body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #F7E7CE;
-  color: #102C26;
-}
+  background: #F7E7CE;  /* Krem fon */
+  color: #102C26;        /* Chuqur yashil text */
+}  
 
-   .header {
+ .header {
   position: relative;
   text-align: center;
   padding: 25px;
-  background: #102C26;
-  color: #F7E7CE;
-}
+  background: linear-gradient(180deg, #102C26, #102C26);
+  border-bottom: 1px solid #102C26;
+}   
 
-  .header h1 {
+.header h1 {
   color: #F7E7CE;
   font-size: 32px;
   letter-spacing: 2px;
 }
 
-  .header p {
-  color: #F7E7CE;
-  opacity: 0.8;
+.header p {
+  color: #102C26;
 }
 
     .top-buttons {
@@ -49,16 +48,15 @@
   margin-bottom: 25px;
   border-radius: 18px;
   overflow: hidden;
-  background: #ffffff;
-  border: none;
-  box-shadow: 0 10px 30px rgba(16,44,38,0.15);
+  background: #1a1a1a;
+  border: 1px solid #d4af37;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   transition: 0.3s;
-  color: #102C26;
 }
 
 .product:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(16,44,38,0.25);
+  box-shadow: 0 15px 40px rgba(212,175,55,0.3);
 }
 
 .product::after {
@@ -105,44 +103,44 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: none;
-  background: #102C26;
-  color: #F7E7CE;
-  font-size: 18px;
+  border: 1px solid #d4af37;
+  background: black;
+  color: #d4af37;
+  font-size: 20px;
   cursor: pointer;
-}
+    }
 
     .total {
       font-weight: bold;
       margin-top: 5px;
     }
 
-    .top-buttons a,
+.top-buttons a,
 .buy {
   display: block;
   text-align: center;
   background: #102C26;
-  border: none;
+  border: 1px solid #F7E7CE;
   color: #F7E7CE;
   padding: 12px;
   border-radius: 14px;
   font-weight: bold;
   text-decoration: none;
   transition: 0.3s;
-}
+}    
 
- .top-buttons a:hover,
+.top-buttons a:hover,
 .buy:hover {
-  background: #1b4d42;
-  transform: translateY(-3px);
+  background: #F7E7CE;
+  color: #102C26;
 }
 
 .top-buttons a:active,
 .buy:active {
   transform: translateY(4px);
   box-shadow: 
-    0 2px 0 #166534,
-    0 4px 8px rgba(0,0,0,0.2);
+    0 2px 0 #102C26,
+    0 4px 8px rgba(16,44,38,0.3);
 }
 
 #loader {
@@ -153,6 +151,8 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  animation: fadeOut 1.3s ease forwards;
+  animation-delay: 3s;
 }
 
 #loader img {
@@ -219,13 +219,13 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #F7E7CE;
+  background: linear-gradient(145deg, #F7E7CE, #F7E7CE);
   color: #102C26;
   padding: 8px 18px;
   border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
-  border: 2px solid #102C26;
+  box-shadow: 0 4px 15px rgba(16,44,38,0.4);
 }
 
 /* MODAL */
@@ -233,7 +233,6 @@
   position: fixed;
   inset: 0;
   background: rgba(16,44,38,0.65);
-  backdrop-filter: blur(6px);
   display: none;
   justify-content: center;
   align-items: center;
@@ -241,7 +240,7 @@
 }
 
 .bonus-content {
-  background: #ffffff;
+  background: #F7E7CE;
   padding: 20px;
   border-radius: 18px;
   width: 95%;
@@ -249,14 +248,15 @@
   max-height: 80vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 40px rgba(16,44,38,0.2);
+  border: 1px solid #102C26;
+  box-shadow: 0 10px 40px rgba(16,44,38,0.7);
   color: #102C26;
 }
 
 .closeBonus {
   align-self: flex-end;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 20px;
   color: #102C26;
   font-weight: bold;
 }
@@ -271,8 +271,6 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
-  font-size: 14px;
 }
 
 th, td {
@@ -287,39 +285,37 @@ td {
 }
 
 th {
-  background: #102C26;
-  color: #F7E7CE;
-  border: none;
+  background: #111;
+  color: #d4af37;
+  border: 1px solid #d4af37;
 }
     
     tbody tr:nth-child(1) td {
-  background: linear-gradient(90deg,#102C26,#1b4d42);
-  color: #F7E7CE;
+  color: #d4af37;
   font-weight: bold;
 }
 
 tbody tr:nth-child(2) td {
-  background: #e8f0ee;
-  font-weight: bold;
+  color: #c0c0c0;
 }
 
 tbody tr:nth-child(3) td {
-  background: #f3f7f6;
-  font-weight: bold;
+  color: #cd7f32;
 }
 
-    .openBrowser {
-  background: #1a1a1a;
-  border: 1px solid #d4af37;
-  color: #ccc;
+.openBrowser {
+  background: #F7E7CE;
+  border: 1px solid #102C26;
+  color: #102C26;
   padding: 12px;
   border-radius: 12px;
   margin-top: 15px;
   font-size: 14px;
-}
+}    
 
 .openBrowser strong {
-  color: #d4af37;
+  color: #102C26;
+  font-weight: bold;
 }
     
   </style>
