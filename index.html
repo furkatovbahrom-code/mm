@@ -271,6 +271,8 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
 }
 
 th, td {
@@ -281,26 +283,33 @@ th, td {
 }
 
 td {
-  color: #ccc;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #102C26;
 }
 
 th {
-  background: #111;
-  color: #d4af37;
-  border: 1px solid #d4af37;
+  background: #102C26;
+  color: #F7E7CE;
+  padding: 10px;
+  border: none;
 }
     
     tbody tr:nth-child(1) td {
-  color: #d4af37;
+  background: linear-gradient(90deg,#102C26,#1b4d42);
+  color: #F7E7CE;
   font-weight: bold;
 }
 
 tbody tr:nth-child(2) td {
-  color: #c0c0c0;
+  background: #e8f0ee;
+  font-weight: bold;
 }
 
 tbody tr:nth-child(3) td {
-  color: #cd7f32;
+  background: #f3f7f6;
+  font-weight: bold;
 }
 
 .openBrowser {
@@ -318,6 +327,9 @@ tbody tr:nth-child(3) td {
   font-weight: bold;
 }
     
+tbody tr:hover {
+  background: #f3f3f3;
+}    
   </style>
 </head>
 <body>
