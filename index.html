@@ -519,12 +519,15 @@ let customers = [
 function renderTable() {
   bonusTable.innerHTML = "";
 
-  customers.forEach((customer, index) => {
+  // 1️⃣ Zakaz bo‘yicha kamayish tartibida sort
+  let sortedCustomers = [...customers].sort((a, b) => b.orders - a.orders);
+
+  sortedCustomers.forEach((customer, index) => {
     let points = customer.orders * 25;
 
     bonusTable.innerHTML += `
       <tr>
-        <td>${index + 1}</td>
+        <td><b>${index + 1}</b></td>
         <td>${customer.name}</td>
         <td>${customer.orders}</td>
         <td>${points}</td>
@@ -532,7 +535,7 @@ function renderTable() {
     `;
   });
 
-  // pastga tushishi uchun
+  // Pastga tushib ko‘rish uchun
   bonusTable.parentElement.scrollTop = bonusTable.parentElement.scrollHeight;
 }
 
