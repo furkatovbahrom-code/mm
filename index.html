@@ -182,7 +182,77 @@
     visibility: hidden;
   }
 }
-    
+
+    /* HEADER ichida turishi uchun */
+.header {
+  position: relative;
+}
+
+/* KNOPKA qimirlamaydi */
+#bonusBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #16a34a;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 5;
+}
+
+/* MODAL */
+#bonusModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.bonus-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 95%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeBonus {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Scroll pastga tushishi uchun */
+.table-wrapper {
+  overflow-y: auto;
+  margin-top: 10px;
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+  font-size: 13px;
+}
+
+th {
+  background: #16a34a;
+  color: white;
+    }
   </style>
 </head>
 <body>
@@ -200,6 +270,30 @@
 <header class="header">
   <h1>B-EPIC Shop</h1>
   <p>Қазақстан бойынша сапалы өнімдер</p>
+
+  <!-- BONUS BUTTON -->
+<div id="bonusBtn">⭐ Бонус</div>
+
+  <!-- BONUS MODAL -->
+<div id="bonusModal">
+  <div class="bonus-content">
+    <span class="closeBonus">✖</span>
+    <h2>Бонус тізімі</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Аты</th>
+            <th>Сатылым</th>
+            <th>Балл</th>
+          </tr>
+        </thead>
+        <tbody id="bonusTable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <div id="openBrowser" style="background:#b0b3af;8padding:12px;border-radius:10px;margin-top:10px;font-size:14px;">
 Егер WhatsApp ашылмаса, оң жақ жоғарыдағы үш нүктені ... басып, 
@@ -381,6 +475,81 @@ introScreen.addEventListener("click", () => {
   introScreen.classList.add("hide");
 
 });
+
+  // BONUS ELEMENTS
+const bonusBtn = document.getElementById("bonusBtn");
+const bonusModal = document.getElementById("bonusModal");
+const closeBonus = document.querySelector(".closeBonus");
+const bonusTable = document.getElementById("bonusTable");
+
+// 30 TA Odam tayyor
+let customers = [
+  { name: "Ali", orders: 2 },
+  { name: "Madina", orders: 1 },
+  { name: "Ruslan", orders: 3 },
+  { name: "Aziza", orders: 4 },
+  { name: "Bekzat", orders: 2 },
+  { name: "Nurlan", orders: 5 },
+  { name: "Dias", orders: 1 },
+  { name: "Aruzhan", orders: 2 },
+  { name: "Samat", orders: 3 },
+  { name: "Aigerim", orders: 4 },
+  { name: "Ernar", orders: 2 },
+  { name: "Dana", orders: 1 },
+  { name: "Marat", orders: 6 },
+  { name: "Zarina", orders: 2 },
+  { name: "Timur", orders: 3 },
+  { name: "Ayan", orders: 1 },
+  { name: "Altynay", orders: 2 },
+  { name: "Arman", orders: 4 },
+  { name: "Kamila", orders: 3 },
+  { name: "Askar", orders: 2 },
+  { name: "Sanzhar", orders: 1 },
+  { name: "Madi", orders: 5 },
+  { name: "Aruz", orders: 2 },
+  { name: "Elmira", orders: 3 },
+  { name: "Rinat", orders: 4 },
+  { name: "Gulnaz", orders: 1 },
+  { name: "Adil", orders: 2 },
+  { name: "Zhanna", orders: 3 },
+  { name: "Kairat", orders: 2 },
+  { name: "Saltanat", orders: 4 }
+];
+
+function renderTable() {
+  bonusTable.innerHTML = "";
+
+  customers.forEach((customer, index) => {
+    let points = customer.orders * 25;
+
+    bonusTable.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${customer.name}</td>
+        <td>${customer.orders}</td>
+        <td>${points}</td>
+      </tr>
+    `;
+  });
+
+  // pastga tushishi uchun
+  bonusTable.parentElement.scrollTop = bonusTable.parentElement.scrollHeight;
+}
+
+bonusBtn.onclick = () => {
+  bonusModal.style.display = "flex";
+  renderTable();
+};
+
+closeBonus.onclick = () => {
+  bonusModal.style.display = "none";
+};
+
+window.onclick = (e) => {
+  if (e.target === bonusModal) {
+    bonusModal.style.display = "none";
+  }
+};
 
 </script>
 
