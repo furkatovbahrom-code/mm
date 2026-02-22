@@ -382,6 +382,80 @@ document.querySelectorAll("button, a, #bonusBtn").forEach(element => {
 
   });
 });
+
+.apple-intro {
+  position: fixed;
+  inset: 0;
+  background: #F7E7CE;
+  overflow: hidden;
+  z-index: 99999;
+}
+
+/* Barcha elementlar */
+.item {
+  position: absolute;
+  opacity: 0;
+}
+
+/* ===== ANIMATSIYALAR ===== */
+
+@keyframes slideTop {
+  from { transform: translateY(-200px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideBottom {
+  from { transform: translateY(200px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(-200px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(200px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomCenter {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== QAYSI ELEMENT QAYERDAN ===== */
+
+.top {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideTop 1s ease forwards;
+}
+
+.bottom {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideBottom 1.2s ease forwards;
+}
+
+.left {
+  left: 5%;
+  animation: slideLeft 1s ease forwards;
+}
+
+.right {
+  right: 5%;
+  animation: slideRight 1s ease forwards;
+}
+
+.center {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: zoomCenter 1.5s ease forwards;
+}    
     
   </style>
 </head>
@@ -391,6 +465,28 @@ document.querySelectorAll("button, a, #bonusBtn").forEach(element => {
   <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
 </div>
 
+<section class="apple-intro">
+
+  <!-- Tepadan tushadigan 2 ta -->
+  <img src="top1.png" class="item top top1">
+  <img src="top2.png" class="item top top2">
+
+  <!-- Chapdan kiradigan 2 ta -->
+  <img src="left1.png" class="item left left1">
+  <img src="left2.png" class="item left left2">
+
+  <!-- O‘ngdan kiradigan 2 ta -->
+  <img src="right1.png" class="item right right1">
+  <img src="right2.png" class="item right right2">
+
+  <!-- Pastdan chiqadigan -->
+  <img src="bottom1.png" class="item bottom">
+
+  <!-- O‘rtadagi BEPIC logo -->
+  <img src="bepic-logo.png" class="item center">
+
+</section>
+  
   <!-- INTRO IMAGE SCREEN -->
 <div id="introScreen">
 </div>
@@ -686,6 +782,10 @@ window.onclick = (e) => {
     bonusModal.style.display = "none";
   }
 };
+
+setTimeout(() => {
+  document.querySelector(".apple-intro").style.display = "none";
+}, 4000);  
 
 </script>
 
