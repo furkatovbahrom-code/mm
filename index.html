@@ -368,6 +368,24 @@ tbody tr:hover {
   color: #F7E7CE;
 }
     
+const clickSound = document.getElementById("clickSound");
+clickSound.volume = 0.25; // iPhone style yumshoq
+    
+document.querySelectorAll("button, a, #bonusBtn").forEach(element => {
+  element.addEventListener("click", () => {
+
+    // iPhone style ultra smooth
+    clickSound.currentTime = 0;
+    
+    const playPromise = clickSound.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+
+  });
+});
+    
   </style>
 </head>
 <body>
@@ -510,6 +528,8 @@ TikTok B-EPIC
   © 2026 — <b>Bahrom Furkatov</b>, 
          Негізін қалаушы
 </footer>
+
+<audio id="clickSound" src="" preload="auto"></audio>
   
 <script>
 
