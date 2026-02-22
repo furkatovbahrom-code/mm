@@ -376,12 +376,10 @@ tbody tr:hover {
   z-index: 99999;
 }
 
-/* ===== UMUMIY ===== */
-
 .item {
   position: absolute;
   opacity: 0;
-  width: 90px;
+  width: 95px;
 }
 
 /* ===== ANIMATSIYALAR ===== */
@@ -407,22 +405,26 @@ tbody tr:hover {
 }
 
 @keyframes zoomCenter {
-  from { transform: scale(0.3); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
-/* ===== 2 TA TEPADAN ===== */
+/* ===== 1 TA TEPADAN ===== */
 
 .top1 {
   top: 5%;
-  left: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   animation: slideTop 1s ease forwards;
 }
 
-.top2 {
-  top: 5%;
-  right: 25%;
-  animation: slideTop 1.2s ease forwards;
+/* ===== 1 TA PASTDAN ===== */
+
+.bottom1 {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideBottom 1.2s ease forwards;
 }
 
 /* ===== 2 TA CHAPDAN ===== */
@@ -434,8 +436,8 @@ tbody tr:hover {
 }
 
 .left2 {
-  left: 10%;
-  bottom: 15%;
+  left: 8%;
+  bottom: 20%;
   animation: slideLeft 1.2s ease forwards;
 }
 
@@ -448,28 +450,19 @@ tbody tr:hover {
 }
 
 .right2 {
-  right: 10%;
-  bottom: 15%;
+  right: 8%;
+  bottom: 20%;
   animation: slideRight 1.2s ease forwards;
 }
 
-/* ===== 1 TA PASTDAN ===== */
-
-.bottom1 {
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: slideBottom 1.3s ease forwards;
-}
-
-/* ===== O‘RTADAGI LOGO ===== */
+/* ===== MARKAZDAN CHIQADIGAN LOGO ===== */
 
 .center {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 170px;
-  animation: zoomCenter 1.5s ease forwards;
+  animation: zoomCenter 1.4s ease forwards;
 }
     
   </style>
@@ -480,26 +473,20 @@ tbody tr:hover {
   <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
 </div>
 
-<section class="apple-intro">
+<div class="apple-intro">
+  <img src="image_1770828767780.png" class="item top1">
 
-  <!-- Tepadan tushadigan 2 ta -->
-  <img src="image_1770828767780.png" class="item top top1">
-  <img src="image_1770828767780.png" class="item top top2">
+  <img src="image_1770828767780.png" class="item left1">
+  <img src="image_1770828767780.png" class="item left2">
 
-  <!-- Chapdan kiradigan 2 ta -->
-  <img src="image_1770828767780.png" class="item left left1">
-  <img src="image_1770828767780.png" class="item left left2">
+  <img src="image_1770828767780.png" class="item right1">
+  <img src="image_1770828767780.png" class="item right2">
 
-  <!-- O‘ngdan kiradigan 2 ta -->
-  <img src="image_1770828767780.png" class="item right right1">
-  <img src="image_1770828767780.png" class="item right right2">
+  <img src="image_1770828767780.png" class="item bottom1">
 
-  <!-- Pastdan chiqadigan -->
-  <img src="image_1770828767780.png" class="item bottom">
-
-  <!-- O‘rtadagi BEPIC logo -->
   <img src="image_1770828767780.png" class="item center">
-
+</div>
+  
 </section>
   
   <!-- INTRO IMAGE SCREEN -->
