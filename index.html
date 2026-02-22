@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B-EPIC Shop</title>
 
+const clickSound = document.getElementById("clickSound");
+clickSound.volume = 0.25; // iPhone style yumshoq
+
   <style>
   body {
   margin: 0;
@@ -367,9 +370,6 @@ tbody tr:hover {
   background: #102C26;
   color: #F7E7CE;
 }
-    
-const clickSound = document.getElementById("clickSound");
-clickSound.volume = 0.25; // iPhone style yumshoq
     
 document.querySelectorAll("button, a, #bonusBtn").forEach(element => {
   element.addEventListener("click", () => {
