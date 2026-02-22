@@ -367,21 +367,6 @@ tbody tr:hover {
   background: #102C26;
   color: #F7E7CE;
 }
-    
-document.querySelectorAll("button, a, #bonusBtn").forEach(element => {
-  element.addEventListener("click", () => {
-
-    // iPhone style ultra smooth
-    clickSound.currentTime = 0;
-    
-    const playPromise = clickSound.play();
-
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
-    }
-
-  });
-});
 
 .apple-intro {
   position: fixed;
@@ -786,6 +771,16 @@ window.onclick = (e) => {
 setTimeout(() => {
   document.querySelector(".apple-intro").style.display = "none";
 }, 4000);  
+
+const clickSound = document.getElementById("clickSound");
+clickSound.volume = 0.2;
+
+document.querySelectorAll("button, a, #bonusBtn").forEach(element => {
+  element.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play().catch(() => {});
+  });
+});  
 
 </script>
 
