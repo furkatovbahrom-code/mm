@@ -376,71 +376,101 @@ tbody tr:hover {
   z-index: 99999;
 }
 
+/* ===== UMUMIY ===== */
+
 .item {
   position: absolute;
   opacity: 0;
-  width: 100px;   /* 🔥 RAZMER SHU YERDA */
+  width: 90px;
 }
 
 /* ===== ANIMATSIYALAR ===== */
 
 @keyframes slideTop {
-  from { transform: translateY(-200px); opacity: 0; }
+  from { transform: translateY(-250px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes slideBottom {
-  from { transform: translateY(200px); opacity: 0; }
+  from { transform: translateY(250px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes slideLeft {
-  from { transform: translateX(-200px); opacity: 0; }
+  from { transform: translateX(-250px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes slideRight {
-  from { transform: translateX(200px); opacity: 0; }
+  from { transform: translateX(250px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes zoomCenter {
-  from { transform: scale(0.5); opacity: 0; }
+  from { transform: scale(0.3); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-/* ===== QAYSI ELEMENT QAYERDAN ===== */
+/* ===== 2 TA TEPADAN ===== */
 
-.top {
+.top1 {
   top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 25%;
   animation: slideTop 1s ease forwards;
 }
 
-.bottom {
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: slideBottom 1.2s ease forwards;
+.top2 {
+  top: 5%;
+  right: 25%;
+  animation: slideTop 1.2s ease forwards;
 }
 
-.left {
+/* ===== 2 TA CHAPDAN ===== */
+
+.left1 {
   left: 5%;
+  top: 30%;
   animation: slideLeft 1s ease forwards;
 }
 
-.right {
+.left2 {
+  left: 10%;
+  bottom: 15%;
+  animation: slideLeft 1.2s ease forwards;
+}
+
+/* ===== 2 TA O‘NGDAN ===== */
+
+.right1 {
   right: 5%;
+  top: 30%;
   animation: slideRight 1s ease forwards;
 }
 
+.right2 {
+  right: 10%;
+  bottom: 15%;
+  animation: slideRight 1.2s ease forwards;
+}
+
+/* ===== 1 TA PASTDAN ===== */
+
+.bottom1 {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideBottom 1.3s ease forwards;
+}
+
+/* ===== O‘RTADAGI LOGO ===== */
+
 .center {
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 170px;
   animation: zoomCenter 1.5s ease forwards;
-}    
+}
     
   </style>
 </head>
