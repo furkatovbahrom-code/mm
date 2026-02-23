@@ -8,27 +8,31 @@
   <style>
   body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #ffffff;  /* Krem fon */
-  color: #102C26;        /* Chuqur yashil text */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  background: #ffffff;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
 }  
 
  .header {
   position: relative;
   text-align: center;
-  padding: 25px;
-  background: linear-gradient(180deg, #102C26, #102C26);
-  border-bottom: 1px solid #102C26;
-}   
+  padding: 90px 20px 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #f2f2f2;
+} 
 
 .header h1 {
-  color: #F7E7CE;
-  font-size: 32px;
-  letter-spacing: 2px;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: #111111;
 }
 
 .header p {
-  color: #F7E7CE;
+  font-size: 18px;
+  color: #6e6e73;
+  margin-top: 10px;
 }
 
     .top-buttons {
@@ -42,29 +46,44 @@
       padding: 15px;
     }
 
-  .product {
-  position: relative;
-  padding: 20px;
-  margin-bottom: 25px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #F7E7CE;
-  border: 1px solid #F7E7CE;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  transition: 0.3s;
+ .product {
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 45px;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  transition: 0.4s ease;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.08);
+}
+
+.product h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #111111;
+}
+
+.product p {
+  color: #6e6e73;
+  font-size: 17px;
+}
+
+.product div {
+  color: #1d1d1f;
+}
+
+.products {
+  max-width: 1100px;
+  margin: auto;
+  padding: 100px 25px;
 }
 
 .product:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(212,175,55,0.3);
-}
-
-.product::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.2);
-  z-index: 1;
 }
 
 .product * {
@@ -338,11 +357,6 @@ tbody tr:hover {
 .quantity button:active {
   transform: scale(0.9);
 }
-.product h2,
-.product p,
-.product div {
-  color: #F7E7CE !important;
-}
 
 /* 1-TikTok */
 .top-buttons a:nth-child(1) {
@@ -466,8 +480,9 @@ tbody tr:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 150px;
-  animation: zoomCenter 1.4s ease forwards;
+  width: 180px;
+  animation: zoomCenter 1.6s ease forwards;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08));
 }
     
   </style>
