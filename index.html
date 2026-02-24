@@ -143,72 +143,6 @@
     0 4px 8px rgba(16,44,38,0.3);
 }
 
-#loader {
-  position: fixed;
-  inset: 0;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeOut 1.3s ease forwards;
-  animation-delay: 3s;
-}
-
-#loader img {
-  width: 200px;
-  animation: zoomIn 1.5s ease;
-}
-
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-} 
-
-    #introScreen {
-  position: fixed;
-  inset: 0;
-  background: url("photo_2026-02-17_19-21-19.jpg") center/cover no-repeat;
-  display: none; /* boshida ko‘rinmaydi */
-  justify-content: center;
-  align-items: center;
-  z-index: 9998;
-}
-
-#introScreen h1 {
-  color: white;
-  font-size: 32px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
-}
-
-#introScreen.show {
-  display: flex;
-}
-
-#introScreen.hide {
-  animation: fadeOut 1s ease forwards;
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
     /* HEADER ichida turishi uchun */
 .header {
   position: relative;
@@ -474,10 +408,6 @@ tbody tr:hover {
 </head>
 <body>
 
-<div id="loader">
-  <img src="photo_2026-02-13_18-18-27.jpg" alt="B-EPIC Logo">
-</div>
-
 <div class="apple-intro">
   <img src="photo_2026-02-23_15-41-55.jpg" class="item top1">
 
@@ -491,8 +421,6 @@ tbody tr:hover {
 
   <img src="photo_2026-02-13_18-18-27.jpg" class="item center">
 </div>
-  
-</section>
   
   <!-- INTRO IMAGE SCREEN -->
 <div id="introScreen">
@@ -678,39 +606,6 @@ document.querySelectorAll(".product").forEach(product => {
 if (navigator.userAgent.includes("TikTok")) {
   alert("WhatsApp ашу үшін сайтты браузерде ашыңыз.");
 }
-
-// ================= INTRO CODE =================
-const loader = document.getElementById("loader");
-const introScreen = document.getElementById("introScreen");
-const audio = document.getElementById("introAudio");
-
-let played = false;
-
-setTimeout(() => {
-  introScreen.classList.add("show");
-}, 3000);
-
-introScreen.addEventListener("click", () => {
-
-  if (played) return;
-  played = true;
-
-  audio.volume = 0;
-  audio.play();
-
-  let vol = 0;
-  const fade = setInterval(() => {
-    if (vol < 0.5) {
-      vol += 0.05;
-      audio.volume = vol;
-    } else {
-      clearInterval(fade);
-    }
-  }, 200);
- 
-  introScreen.classList.add("hide");
-
-});
 
   // BONUS ELEMENTS
 const bonusBtn = document.getElementById("bonusBtn");
