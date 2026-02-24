@@ -313,6 +313,7 @@ tbody tr:hover {
 .item {
   position: absolute;
   opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 .left1 { width: 150px; }
@@ -592,7 +593,7 @@ document.querySelectorAll(".product").forEach(product => {
   buyBtn.onclick = () => {
     const total = count * price;
 
-    const message = Сәлеметсіз бе! Мен ${name} өнімінен ${count} дана алғым келеді. Жалпы баға: ${total} ₸;
+   const message = Сәлеметсіз бе! Мен ${name} өнімінен ${count} дана алғым келеді. Жалпы баға: ${total} ₸;
 
     const phoneNumber = "77752709238";
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
